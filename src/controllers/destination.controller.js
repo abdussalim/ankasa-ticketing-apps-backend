@@ -88,7 +88,7 @@ const destinationController = {
         // menghapus image sebelumnya di gd jika sebelumnya sudah pernah upload
         if (image) {
           console.log(image);
-          const imageGoogleDriveID = image.split("id=")[1].split("&sz")[0];
+          const imageGoogleDriveID = image.split("id=")[1];
           await deleteGoogleDrive(imageGoogleDriveID);
         }
         // upload photo baru ke gd
@@ -99,7 +99,7 @@ const destinationController = {
         id,
         country: req.body.country,
         place: req.body.place,
-        image: `https://drive.google.com/thumbnail?id=${image}&sz=s1080`,
+        image: `https://drive.google.com/uc?export=view&id=${image}`,
         price: Number(req.body.price),
         totalAirline: Number(req.body.totalAirline),
         date: new Date(),
